@@ -1,5 +1,5 @@
 #!/bin/bash
-MYIP=$(curl -sS ipv4.icanhazip.com)
+MYIP=$(wget -qO- ipinfo.io/ip)
 echo "Checking VPS"
 #########################
 IZIN=$(curl -sS https://raw.githubusercontent.com/nanotechis/supreme/aio/permission/ip | awk '{print $4}' | grep $MYIP)
