@@ -12,7 +12,7 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
 # Getting
-MYIP=$(curl -sS ipv4.icanhazip.com)
+MYIP=$(wget -qO- ipinfo.io/ip)
 echo "Checking VPS"
 #########################
 IZIN=$(curl -sS https://raw.githubusercontent.com/nanotechis/supreme/aio/permission/ip | awk '{print $4}' | grep $MYIP)
