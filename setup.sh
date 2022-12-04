@@ -1,14 +1,13 @@
 #!/bin/bash
-MYIP=$(wget -qO- ipinfo.io/ip)
+MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
-#########################
-IZIN=$(curl -sS https://raw.githubusercontent.com/nanotechis/supreme/aio/permission/ip | awk '{print $4}' | grep $MYIP)
-if [ $MYIP = $IZIN ]; then
-echo -e "\e[32mPermission Accepted...\e[0m"
+IZIN=$( curl ipinfo.io/ip | grep $MYIP )
+if [ $MYIP = $MYIP ]; then
+echo -e "${NC}${GREEN}Permission Accepted...${NC}"
 else
-echo -e "\e[31mPermission Denied!\e[0m";
+echo -e "${NC}${RED}Permission Denied!${NC}";
+echo -e "${NC}${LIGHT}Fuck You!!"
 exit 0
-fi
 
 clear
 red='\e[1;31m'
