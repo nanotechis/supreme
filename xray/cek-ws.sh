@@ -11,13 +11,14 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
 # Getting
-MYIP=$(wget -qO- ipinfo.io/ip);
+MYIP=$(curl -sS ipv4.icanhazip.com)
 echo "Checking VPS"
-IZIN=$( curl ipinfo.io/ip | grep $MYIP )
-if [ $MYIP = $MYIP ]; then
-echo -e "${NC}${GREEN}Permission Accepted...${NC}"
+#########################
+IZIN=$(curl -sS https://raw.githubusercontent.com/nanotechis/supreme/aio/permission/ip | awk '{print $4}' | grep $MYIP)
+if [ $MYIP = $IZIN ]; then
+echo -e "\e[32mPermission Accepted...\e[0m"
 else
-echo -e "${NC}${RED}Permission Denied!${NC}";
+echo -e "\e[31mPermission Denied!\e[0m";
 exit 0
 fi
 clear
